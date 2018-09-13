@@ -12,8 +12,6 @@ import networkx as nx
 from .term import (Term, WeightedTerm, TermAggregate, FuzzyAggregationMethods,
                    TermPrimitive)
 from .state import StatefulProperty
-from .visualization import ControlSystemVisualizer
-
 
 class Rule(object):
     """
@@ -293,16 +291,3 @@ class Rule(object):
             graph.add_path([self, c.term])
             graph = nx.compose(graph, c.term.parent.graph)
         return graph
-
-    def view(self):
-        """
-        Show a visual representation of this Rule.
-        """
-        return ControlSystemVisualizer(self).view()
-
-    def view_n(self):
-        """
-        Show a visual network representation of this Rule.
-        To run this all names of the Membership functions needs to unique.
-        """
-        return ControlSystemVisualizer(self).view_n()

@@ -13,7 +13,6 @@ from .fuzzyvariable import FuzzyVariable
 from .antecedent_consequent import Antecedent, Consequent
 from .term import Term, WeightedTerm, TermAggregate
 from .rule import Rule
-from .visualization import ControlSystemVisualizer
 
 try:
     from collections import OrderedDict
@@ -124,21 +123,6 @@ class ControlSystem(object):
         else:
             self.colors.extend(color)
         self.graph_n = U, self.colors
-
-    def view(self):
-        """
-        View a representation of the system NetworkX graph.
-        """
-        fig, ax = ControlSystemVisualizer(self).view()
-        fig.show()
-
-    def view_n(self):
-        """
-        View a representation of the system NetworkX graph.
-        """
-        fig, ax = ControlSystemVisualizer(self).view_n()
-        fig.show()
-
 
 def _is_ndarray(object):
     """

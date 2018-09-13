@@ -4,7 +4,6 @@ fuzzyvariable.py : Contains the base fuzzy variable class, FuzzyVariable.
 import numpy as np
 
 from ..membership import trimf
-from .visualization import FuzzyVariableVisualizer
 from .term import Term
 
 try:
@@ -115,11 +114,6 @@ class FuzzyVariable(object):
         # If above pass, add the new membership function
         item.parent = self
         self.terms[key] = item
-
-    def view(self, *args, **kwargs):
-        """""" + FuzzyVariableVisualizer.view.__doc__
-        fig, ax = FuzzyVariableVisualizer(self).view(*args, **kwargs)
-        fig.show()
 
     def automf(self, number=5, variable_type='quality', names=None,
                invert=False):
